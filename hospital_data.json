@@ -1,4 +1,11 @@
 {
   "surgery_name": "عملية القلب المفتوح",
-  "surgeon_name": "د. أحمد علي"
+  "surgeon_name": "د. أحمد علي",
+  "today_appointments": 25,
+  "tomorrow_appointments": 18,
+  "handled_calls": 120,
+  "emergency_patients": 8,
+  "admitted_patients": 15,
+  "best_doctor": "د. يوسف كريم",
+  "best_surgeon": "د. محمد سعيد"
 }
