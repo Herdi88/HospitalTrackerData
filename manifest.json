@@ -1,0 +1,15 @@
+{
+    "name": "لوحة إدارة المستشفى",
+    "short_name": "المستشفى",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#6200EA",
+    "theme_color": "#6200EA",
+    "icons": [
+        {
+            "src": "/icon.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
