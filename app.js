@@ -5,7 +5,8 @@ async function updateData() {
         let response = await fetch(apiUrl);
         let data = await response.json();
 
-        document.getElementById("today_appointments").innerText = data.today_appointments;
+        console.log("Today's Surgeries:", data.todays_surgeries);
+ = data.today_appointments;
         document.getElementById("tomorrow_appointments").innerText = data.tomorrow_appointments;
         document.getElementById("handled_calls").innerText = data.handled_calls;
         document.getElementById("emergency_patients").innerText = data.emergency_patients;
