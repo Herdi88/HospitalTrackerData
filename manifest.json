@@ -1,15 +1,16 @@
 {
-    "name": "لوحة إدارة المستشفى",
-    "short_name": "المستشفى",
-    "start_url": "/index.html",
+    "name": "Hospital Tracker",
+    "short_name": "Hospital",
+    "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#6200EA",
-    "theme_color": "#6200EA",
+    "background_color": "#f4f4f4",
+    "theme_color": "#6200ea",
     "icons": [
         {
-            "src": "/icon.png",
-            "type": "image/png",
-            "sizes": "512x512"
+            "src": "icon.png",
+            "sizes": "512x512",
+            "type": "image/png"
         }
     ]
 }
+
