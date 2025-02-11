@@ -1,57 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("hospital_data.json")
-        .then(response => response.json())
-        .then(data => {
-            // General hospital stats
-            document.getElementById("today_appointments").innerText = data.today_appointments;
-            document.getElementById("tomorrow_appointments").innerText = data.tomorrow_appointments;
-            document.getElementById("handled_calls").innerText = data.handled_calls;
-            document.getElementById("emergency_patients").innerText = data.emergency_patients;
-            document.getElementById("admitted_patients").innerText = data.admitted_patients;
+    const apiUrl = "https://raw.githubusercontent.com/Herdi88/HospitalTrackerData/main/hospital_data.json";
 
-            // Best doctor & best surgeon of last week
-            document.getElementById("best_doctor").innerText = data.best_doctor || "غير متوفر";
-            document.getElementById("best_surgeon").innerText = data.best_surgeon || "غير متوفر";
+    function fetchData() {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                updateDashboard(data);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                document.getElementById("update-time").innerText = "⚠️ خطأ في تحميل البيانات";
+            });
+    }
 
-            // Last update timestamp
-            document.getElementById("last_updated").innerText = `📅 آخر تحديث: ${data.last_updated}`;
+    function updateDashboard(data) {
+        document.getElementById("today-appointments").innerText = data.today_appointments;
+        document.getElementById("tomorrow-appointments").innerText = data.tomorrow_appointments;
+        document.getElementById("handled-calls").innerText = data.handled_calls;
+        document.getElementById("emergency-patients").innerText = data.emergency_patients;
+        document.getElementById("admitted-patients").innerText = data.admitted_patients;
 
-            // Surgery Section - Show total surgeries and create a collapsible list
-            let surgeriesContainer = document.getElementById("surgeries_section");
-            let surgeryList = document.getElementById("surgery_list");
-            let toggleButton = document.getElementById("toggle_surgery_list");
+        document.getElementById("best-doctor").innerText = data.best_doctor || "غير متوفر";
+        document.getElementById("best-surgeon").innerText = data.best_surgeon || "غير متوفر";
+        
+        document.getElementById("top-doctor-appointments").innerText = data.top_doctor_appointments || "غير متوفر";
 
-            if (data.todays_surgeries.length > 0) {
-                // Show total surgeries
-                surgeriesContainer.style.display = "block";
-                toggleButton.innerText = `عرض قائمة العمليات الجراحية ⬇️ (${data.total_todays_surgeries})`;
+        // Top Surgeries This Week
+        const topSurgeriesList = document.getElementById("top-weekly-surgeries");
+        topSurgeriesList.innerHTML = "";
+        if (data.top_weekly_surgeries && data.top_weekly_surgeries.length > 0) {
+            data.top_weekly_surgeries.forEach(surgery => {
+                let listItem = document.createElement("li");
+                listItem.innerText = `${surgery.surgery}: ${surgery.count} عمليات`;
+                topSurgeriesList.appendChild(listItem);
+            });
+        } else {
+            topSurgeriesList.innerHTML = "<li>غير متوفر</li>";
+        }
 
-                // Populate the surgery list (up to 20 surgeries)
-                surgeryList.innerHTML = "";
-                data.todays_surgeries.slice(0, 20).forEach(surgery => {
-                    let listItem = document.createElement("li");
-                    listItem.innerHTML = `<b>🩺 ${surgery.name}</b> - الجراح: ${surgery.doctor}`;
-                    surgeryList.appendChild(listItem);
-                });
+        // Surgery Section
+        document.getElementById("total-todays-surgeries").innerText = data.total_todays_surgeries;
 
-                // Toggle Surgery List Visibility
-                toggleButton.addEventListener("click", function () {
-                    if (surgeryList.style.display === "none") {
-                        surgeryList.style.display = "block";
-                        toggleButton.innerText = "إخفاء قائمة العمليات الجراحية ⬆️";
-                    } else {
-                        surgeryList.style.display = "none";
-                        toggleButton.innerText = `عرض قائمة العمليات الجراحية ⬇️ (${data.total_todays_surgeries})`;
-                    }
-                });
+        const surgeryList = document.getElementById("todays-surgeries");
+        surgeryList.innerHTML = "";
 
-            } else {
-                // Hide the section if no surgeries are available
-                surgeriesContainer.style.display = "none";
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching hospital data:", error);
-            document.getElementById("error_message").innerText = "⚠️ خطأ في تحميل البيانات";
-        });
+        if (data.todays_surgeries && data.todays_surgeries.length > 0) {
+            data.todays_surgeries.forEach(surgery => {
+                let surgeryItem = document.createElement("li");
+                surgeryItem.innerText = `🔹 ${surgery.name} - 👨‍⚕️ ${surgery.doctor}`;
+                surgeryList.appendChild(surgeryItem);
+            });
+        } else {
+            surgeryList.innerHTML = "<li>لا توجد عمليات اليوم</li>";
+        }
+
+        // Update Timestamp
+        document.getElementById("update-time").innerText = `🗓️ آخر تحديث: ${data.last_updated}`;
+    }
+
+    document.getElementById("update-button").addEventListener("click", function () {
+        fetchData();
+    });
+
+    fetchData();
 });
