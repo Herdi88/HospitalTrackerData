@@ -6,34 +6,35 @@
     <title>لوحة إدارة المستشفى</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <script defer src="app.js"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>لوحة إدارة المستشفى</h1>
-    <p>إجمالي المواعيد اليوم: <span id="today_appointments">...</span></p>
-    <p>مواعيد الغد: <span id="tomorrow_appointments">...</span></p>
-    <p>المكالمات المستلمة: <span id="handled_calls">...</span></p>
-    <p>مرضى الطوارئ: <span id="emergency_patients">...</span></p>
-    <p>المرضى الراقدين: <span id="admitted_patients">...</span></p>
-    <!-- Surgery Section -->
-<div id="surgeries_section" style="display: none;">
-    <h2>🔬 العمليات الجراحية اليوم: <span id="total_surgeries"></span></h2>
-    <button id="toggle_surgery_list">عرض قائمة العمليات الجراحية ⬇️</button>
-    <ul id="surgery_list" style="display: none;"></ul>
-</div>
+    <h1>🏥 لوحة إدارة المستشفى</h1>
 
-    <h2>أفضل طبيب الأسبوع الماضي</h2>
-    <p>🏅 <span id="best_doctor">...</span></p>
+    <h2>📅 إجمالي مواعيد اليوم: <span id="today-appointments">0</span></h2>
+    <p>🗓️ مواعيد الغد: <span id="tomorrow-appointments">0</span></p>
+    <p>📞 المكالمات المستلمة: <span id="handled-calls">0</span></p>
+    <p>🚑 مرضى الطوارئ: <span id="emergency-patients">0</span></p>
+    <p>🛏️ المرضى الراقدين: <span id="admitted-patients">0</span></p>
 
-    <h2>أفضل جراح الأسبوع الماضي</h2>
-    <p>🏅 <span id="best_surgeon">...</span></p>
+    <h2>🏆 أفضل طبيب الأسبوع الماضي</h2>
+    <p>👨‍⚕️ <span id="best-doctor">غير متوفر</span></p>
 
-    <button onclick="updateData()">🔄 تحديث البيانات</button>
+    <h2>🏅 أفضل جراح الأسبوع الماضي</h2>
+    <p>🔪 <span id="best-surgeon">غير متوفر</span></p>
 
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
-        }
-    </script>
+    <h2>📊 أفضل طبيب حسب المواعيد الأسبوعية</h2>
+    <p>👨‍⚕️ <span id="top-doctor-appointments">غير متوفر</span></p>
+
+    <h2>🏥 العمليات الجراحية اليوم: <span id="total-todays-surgeries">0</span></h2>
+    <button onclick="toggleSurgeryList()">🔽 عرض قائمة العمليات الجراحية</button>
+    <ul id="todays-surgeries" style="display: none;"></ul>
+
+    <h3>🔝 أفضل العمليات الجراحية لهذا الأسبوع</h3>
+    <ul id="top-weekly-surgeries"></ul>
+
+    <h4 id="update-time">🕒 تحديث البيانات...</h4>
+    <button id="update-button">🔄 تحديث البيانات</button>
 </body>
 </html>
+
