@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة إدارة المستشفى</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <h1>لوحة إدارة المستشفى</h1>
+    <p>إجمالي المواعيد اليوم: <span id="today_appointments">...</span></p>
+    <p>مواعيد الغد: <span id="tomorrow_appointments">...</span></p>
+    <p>المكالمات المستلمة: <span id="handled_calls">...</span></p>
+    <p>مرضى الطوارئ: <span id="emergency_patients">...</span></p>
+    <p>المرضى الراقدين: <span id="admitted_patients">...</span></p>
+    
+    <h2>أفضل طبيب الأسبوع الماضي</h2>
+    <p>🏅 <span id="best_doctor">...</span></p>
+
+    <h2>أفضل جراح الأسبوع الماضي</h2>
+    <p>🏅 <span id="best_surgeon">...</span></p>
+
+    <button onclick="updateData()">🔄 تحديث البيانات</button>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+</body>
+</html>
