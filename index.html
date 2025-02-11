@@ -4,35 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة إدارة المستشفى</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="manifest" href="manifest.json">
-    <script defer src="app.js"></script>
+    <script defer src="app.js?v=2"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🏥 لوحة إدارة المستشفى</h1>
+    <h1>🏥 لوحة إدارة المستشفى</h1>
+    
+    <div id="data-container">
+        <p>📅 إجمالي مواعيد اليوم: <span id="today-appointments">...</span></p>
+        <p>📆 مواعيد الغد: <span id="tomorrow-appointments">...</span></p>
+        <p>📞 المكالمات المستلمة: <span id="handled-calls">...</span></p>
+        <p>🚑 مرضى الطوارئ: <span id="emergency-patients">...</span></p>
+        <p>🛏️ المرضى الراقدين: <span id="admitted-patients">...</span></p>
 
-        <p>📅 إجمالي المواعيد اليوم: <span id="today_appointments">-</span></p>
-        <p>📆 مواعيد الغد: <span id="tomorrow_appointments">-</span></p>
-        <p>📞 المكالمات المستلمة: <span id="handled_calls">-</span></p>
-        <p>🚑 مرضى الطوارئ: <span id="emergency_patients">-</span></p>
-        <p>🛏️ المرضى الراقدين: <span id="admitted_patients">-</span></p>
+        <h2>👨‍⚕️ أفضل طبيب حسب المواعيد الأسبوعية</h2>
+        <p>👨‍⚕️ <span id="top-doctor-appointments">...</span></p>
 
-        <h2>🔬 العمليات الجراحية اليوم: <span id="total_surgeries">-</span></h2>
-        <button id="toggleSurgeryList" class="toggle-button">🔽 عرض قائمة العمليات الجراحية</button>
-        <ul id="surgery_list" class="hidden"></ul>
+        <h2>🔪 أفضل جراح حسب العمليات الأسبوعية</h2>
+        <p>🔪 <span id="top-surgeon-surgeries">...</span></p>
 
-        <h2>🔝 أفضل العمليات الجراحية لهذا الأسبوع</h2>
-        <div id="top_weekly_surgeries"></div>
+        <h2>🔬 العمليات الجراحية اليوم: <span id="total-todays-surgeries">...</span></h2>
+        <button id="toggle-surgeries">🔽 عرض قائمة العمليات الجراحية</button>
+        <ul id="todays-surgeries-list" style="display: none;"></ul>
 
-        <h2>🏆 أفضل الأطباء حسب المواعيد (الأسبوع الماضي)</h2>
-        <div id="top_doctors_appointments"></div>
+        <h2>📊 عدد العمليات في الأسبوع الماضي</h2>
+        <ul id="top-weekly-surgeries"></ul>
 
-        <h2>🔪 أفضل الجراحين حسب العمليات (الأسبوع الماضي)</h2>
-        <div id="top_surgeons"></div>
+        <p>📅 آخر تحديث: <span id="last-updated">...</span></p>
 
-        <p>📅 آخر تحديث: <span id="last_updated">-</span></p>
-        <button id="refresh_data">🔄 تحديث البيانات</button>
+        <button id="refresh-data">🔄 تحديث البيانات</button>
     </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker Registered!', reg))
+                .catch(err => console.log('Service Worker Failed:', err));
+        }
+    </script>
 </body>
 </html>
