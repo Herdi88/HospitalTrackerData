@@ -1,66 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const apiUrl = "https://raw.githubusercontent.com/Herdi88/HospitalTrackerData/main/hospital_data.json";
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة إدارة المستشفى</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 لوحة إدارة المستشفى</h1>
 
-    function fetchData() {
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                updateDashboard(data);
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
-                document.getElementById("update-time").innerText = "⚠️ خطأ في تحميل البيانات";
-            });
-    }
+        <p>📅 إجمالي المواعيد اليوم: <span id="today_appointments">-</span></p>
+        <p>📆 مواعيد الغد: <span id="tomorrow_appointments">-</span></p>
+        <p>📞 المكالمات المستلمة: <span id="handled_calls">-</span></p>
+        <p>🚑 مرضى الطوارئ: <span id="emergency_patients">-</span></p>
+        <p>🛏️ المرضى الراقدين: <span id="admitted_patients">-</span></p>
 
-    function updateDashboard(data) {
-        document.getElementById("today-appointments").innerText = data.today_appointments;
-        document.getElementById("tomorrow-appointments").innerText = data.tomorrow_appointments;
-        document.getElementById("handled-calls").innerText = data.handled_calls;
-        document.getElementById("emergency-patients").innerText = data.emergency_patients;
-        document.getElementById("admitted-patients").innerText = data.admitted_patients;
+        <h2>🔬 العمليات الجراحية اليوم: <span id="total_surgeries">-</span></h2>
+        <button id="toggleSurgeryList" class="toggle-button">🔽 عرض قائمة العمليات الجراحية</button>
+        <ul id="surgery_list" class="hidden"></ul>
 
-        document.getElementById("best-doctor").innerText = data.best_doctor || "غير متوفر";
-        document.getElementById("best-surgeon").innerText = data.best_surgeon || "غير متوفر";
-        
-        document.getElementById("top-doctor-appointments").innerText = data.top_doctor_appointments || "غير متوفر";
+        <h2>🔝 أفضل العمليات الجراحية لهذا الأسبوع</h2>
+        <div id="top_weekly_surgeries"></div>
 
-        // Top Surgeries This Week
-        const topSurgeriesList = document.getElementById("top-weekly-surgeries");
-        topSurgeriesList.innerHTML = "";
-        if (data.top_weekly_surgeries && data.top_weekly_surgeries.length > 0) {
-            data.top_weekly_surgeries.forEach(surgery => {
-                let listItem = document.createElement("li");
-                listItem.innerText = `${surgery.surgery}: ${surgery.count} عمليات`;
-                topSurgeriesList.appendChild(listItem);
-            });
-        } else {
-            topSurgeriesList.innerHTML = "<li>غير متوفر</li>";
-        }
+        <h2>🏆 أفضل الأطباء حسب المواعيد (الأسبوع الماضي)</h2>
+        <div id="top_doctors_appointments"></div>
 
-        // Surgery Section
-        document.getElementById("total-todays-surgeries").innerText = data.total_todays_surgeries;
+        <h2>🔪 أفضل الجراحين حسب العمليات (الأسبوع الماضي)</h2>
+        <div id="top_surgeons"></div>
 
-        const surgeryList = document.getElementById("todays-surgeries");
-        surgeryList.innerHTML = "";
-
-        if (data.todays_surgeries && data.todays_surgeries.length > 0) {
-            data.todays_surgeries.forEach(surgery => {
-                let surgeryItem = document.createElement("li");
-                surgeryItem.innerText = `🔹 ${surgery.name} - 👨‍⚕️ ${surgery.doctor}`;
-                surgeryList.appendChild(surgeryItem);
-            });
-        } else {
-            surgeryList.innerHTML = "<li>لا توجد عمليات اليوم</li>";
-        }
-
-        // Update Timestamp
-        document.getElementById("update-time").innerText = `🗓️ آخر تحديث: ${data.last_updated}`;
-    }
-
-    document.getElementById("update-button").addEventListener("click", function () {
-        fetchData();
-    });
-
-    fetchData();
-});
+        <p>📅 آخر تحديث: <span id="last_updated">-</span></p>
+        <button id="refresh_data">🔄 تحديث البيانات</button>
+    </div>
+</body>
+</html>
