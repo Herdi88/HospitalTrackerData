@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dataUrl = "https://raw.githubusercontent.com/Herdi88/HospitalTrackerData/main/hospital_data.json";
+    let lastUpdatedTime = "";
 
     async function fetchData() {
         try {
@@ -12,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("emergency_patients").textContent = data.emergency_patients;
             document.getElementById("admitted_patients").textContent = data.admitted_patients;
             document.getElementById("total_surgeries").textContent = data.total_todays_surgeries;
-            document.getElementById("last_updated").textContent = data.last_updated;
+            document.getElementById("last_updated").textContent = `🗓 ${data.last_updated}`;
 
-            // Populate Surgery List (Fixed Issue)
+            // Populate Surgery List
             const surgeryList = document.getElementById("surgery_list");
             surgeryList.innerHTML = "";
             data.todays_surgeries.forEach(surgery => {
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Populate Top Surgeons by Surgeries
             document.getElementById("top_surgeons").textContent = `🔪 ${data.best_surgeon}`;
 
+            lastUpdatedTime = data.last_updated;
         } catch (error) {
             console.error("Error fetching data:", error);
             document.getElementById("last_updated").textContent = "❌ خطأ في تحميل البيانات";
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Button to Refresh Data
     document.getElementById("refresh_data").addEventListener("click", fetchData);
 
-    // Toggle Surgery List Visibility (Fixed Issue)
+    // Toggle Surgery List Visibility
     document.getElementById("toggleSurgeryList").addEventListener("click", function () {
         const list = document.getElementById("surgery_list");
         if (list.classList.contains("hidden")) {
@@ -60,6 +62,38 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Auto-refresh when `hospital_data.json` is updated
+    function checkForUpdates() {
+        setInterval(async () => {
+            try {
+                const response = await fetch(dataUrl);
+                const data = await response.json();
+                if (data.last_updated !== lastUpdatedTime) {
+                    console.log("🔄 تحديث جديد متاح! يتم إعادة تحميل الصفحة...");
+                    location.reload();
+                }
+            } catch (error) {
+                console.error("خطأ في فحص التحديثات:", error);
+            }
+        }, 30000); // Check every 30 seconds
+    }
+
+    // Force-refresh when HTML, CSS, or JS is updated
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').then(reg => {
+            reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        console.log("🔄 تحديث متاح للتطبيق! يتم إعادة تحميل الصفحة...");
+                        location.reload();
+                    }
+                });
+            });
+        });
+    }
+
     // Load Data on Page Load
     fetchData();
+    checkForUpdates(); // Start checking for updates automatically
 });
