@@ -1,12 +1,17 @@
 {
-  "last_updated": "",
-  "today_appointments": "",
-  "tomorrow_appointments": "",
-  "handled_calls": "",
-  "emergency_patients": "",
-  "admitted_patients": "",
-  "total_todays_surgeries": "",
-  "todays_surgeries": [],
+  "last_updated": "2025.02.15 14:03",
+  "today_appointments": 50,
+  "tomorrow_appointments": 80,
+  "handled_calls": 400,
+  "emergency_patients": 14,
+  "admitted_patients": 15,
+  "total_todays_surgeries": 15,
+  "todays_surgeries": [
+    {
+      "name": "",
+      "doctor": "?. ???? ???"
+    }
+  ],
   "top_doctor_appointments": "",
   "best_surgeon": ""
 }
