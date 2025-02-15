@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // Populate Top Doctors by Appointments
-            document.getElementById("top_doctors_appointments").textContent = `👨‍⚕️ ${data.top_doctor_appointments}`;
+            document.getElementById("top_doctors_appointments").textContent = `🏆 ${data.top_doctor_appointments}`;
 
             // Populate Top Surgeons by Surgeries
-            document.getElementById("top_surgeons").textContent = `🔪 ${data.best_surgeon}`;
+            document.getElementById("top_surgeons").textContent = `🌟 ${data.best_surgeon}`;
 
             lastUpdatedTime = data.last_updated;
         } catch (error) {
