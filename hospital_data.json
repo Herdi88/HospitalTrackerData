@@ -1,9 +1,9 @@
 {
   "last_updated": "2025-02-15T11:03:00.000Z",
-  "today_appointments": 25,
-  "tomorrow_appointments": 18,
-  "handled_calls": 120,
-  "emergency_patients": 8,
+  "today_appointments": 50,
+  "tomorrow_appointments": 80,
+  "handled_calls": 400,
+  "emergency_patients": 14,
   "admitted_patients": 15,
   "total_todays_surgeries": 8,
   "todays_surgeries": [
