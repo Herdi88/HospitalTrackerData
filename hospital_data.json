@@ -1,12 +1,12 @@
 {
-  "last_updated": "2025-02-15T11:03:00.000Z",
-  "today_appointments": 50,
-  "tomorrow_appointments": 80,
-  "handled_calls": 400,
-  "emergency_patients": 14,
-  "admitted_patients": 15,
-  "total_todays_surgeries": 8,
+  "last_updated": "B",
+  "today_appointments": "2025-02-15T11:03:00.000Z",
+  "tomorrow_appointments": 50,
+  "handled_calls": 80,
+  "emergency_patients": 400,
+  "admitted_patients": 14,
+  "total_todays_surgeries": 15,
   "todays_surgeries": [],
-  "top_doctor_appointments": "?? ???? ??????",
-  "best_surgeon": "?? ???? ??????"
+  "top_doctor_appointments": "?. ???? ???? - 20 ??????",
+  "best_surgeon": "?. ???? ???? - 10 ??????"
 }
