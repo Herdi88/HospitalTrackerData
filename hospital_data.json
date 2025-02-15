@@ -1,27 +1,10 @@
 {
-  "last_updated": "2025-02-11 10:30 AM",
-  "today_appointments": 25,
-  "tomorrow_appointments": 18,
-  "handled_calls": 120,
-  "emergency_patients": 8,
-  "admitted_patients": 15,
-  "best_doctor": "د. يوسف كريم",
-  "best_surgeon": "د. محمد سعيد",
-  "top_doctor_appointments": "د. أحمد قاسم",
-  "top_weekly_surgeries": [
-    {"surgery": "عملية القلب المفتوح", "count": 5},
-    {"surgery": "عملية زراعة الكلى", "count": 4},
-    {"surgery": "عملية استئصال ورم", "count": 3}
-  ],
-  "total_todays_surgeries": 8,
-  "todays_surgeries": [
-    {"name": "عملية القلب المفتوح", "doctor": "د. أحمد علي"},
-    {"name": "عملية زراعة الكلى", "doctor": "د. سمير حسن"},
-    {"name": "عملية تجميل الأنف", "doctor": "د. سارة كمال"},
-    {"name": "عملية تصحيح النظر", "doctor": "د. كمال زيدان"},
-    {"name": "عملية قسطرة القلب", "doctor": "د. حسين القادري"},
-    {"name": "عملية استئصال الزائدة", "doctor": "د. طارق نبيل"},
-    {"name": "عملية جراحة السمنة", "doctor": "د. مراد جاسم"},
-    {"name": "عملية زراعة الكبد", "doctor": "د. أدهم حسن"}
-  ]
+  "last_updated": "2025-02-15 02:03 PM",
+  "today_appointments": "",
+  "tomorrow_appointments": "",
+  "handled_calls": "",
+  "emergency_patients": "",
+  "admitted_patients": "",
+  "total_todays_surgeries": "",
+  "todays_surgeries": []
 }
