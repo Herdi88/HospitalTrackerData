@@ -6,74 +6,7 @@
   "emergency_patients": 14,
   "admitted_patients": 15,
   "total_todays_surgeries": 8,
-  "todays_surgeries": [
-    {
-      "name": "عملية القلب المفتوح",
-      "doctor": "د. أحمد علي"
-    },
-    {
-      "name": "عملية زراعة الكلى",
-      "doctor": "د. سمير حسن"
-    },
-    {
-      "name": "اسم الطبيب",
-      "doctor": "عدد المواعيد"
-    },
-    {
-      "name": "د. أحمد قاسم",
-      "doctor": "25"
-    },
-    {
-      "name": "د. يوسف كريم",
-      "doctor": "20"
-    },
-    {
-      "name": "اسم الجراح",
-      "doctor": "عدد العمليات"
-    },
-    {
-      "name": "د. محمد سعيد",
-      "doctor": "10"
-    },
-    {
-      "name": "د. حسين القادري",
-      "doctor": "8"
-    }
-  ],
-  "top_doctor_appointments": [
-    {
-      "doctor": "اسم الطبيب",
-      "count": "عدد المواعيد"
-    },
-    {
-      "doctor": "د. أحمد قاسم",
-      "count": 25
-    },
-    {
-      "doctor": "د. يوسف كريم",
-      "count": 20
-    },
-    {
-      "doctor": "اسم الجراح",
-      "count": "عدد العمليات"
-    },
-    {
-      "doctor": "د. محمد سعيد",
-      "count": 10
-    }
-  ],
-  "top_surgeon_performances": [
-    {
-      "surgeon": "اسم الجراح",
-      "count": "عدد العمليات"
-    },
-    {
-      "surgeon": "د. محمد سعيد",
-      "count": 10
-    },
-    {
-      "surgeon": "د. حسين القادري",
-      "count": 8
-    }
-  ]
+  "todays_surgeries": [],
+  "top_doctor_appointments": "???? ???????? ??? ???????? (Top Surgeons by Surgeries Weekly) -  ??????",
+  "best_surgeon": " -  ??????"
 }
