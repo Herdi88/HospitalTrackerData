@@ -61,6 +61,23 @@ document.addEventListener("DOMContentLoaded", function () {
             this.textContent = "🔽 عرض قائمة العمليات الجراحية";
         }
     });
+// Populate Top Doctors by Appointments
+const topDoctorsList = document.getElementById('top_doctors_list');
+topDoctorsList.innerHTML = "";
+data.top_doctors_weekly.forEach(doctor => {
+  const li = document.createElement('li');
+  li.textContent = `${doctor.name}: ${doctor.count} مواعيد`;
+  topDoctorsList.appendChild(li);
+});
+
+// Populate Top Surgeons by Surgeries
+const topSurgeonsList = document.getElementById('top_surgeons_list');
+topSurgeonsList.innerHTML = "";
+data.top_surgeons_weekly.forEach(surgeon => {
+  const li = document.createElement('li');
+  li.textContent = `${surgeon.name}: ${surgeon.count} عمليات`;
+  topSurgeonsList.appendChild(li);
+});
 
     // Auto-refresh when `hospital_data.json` is updated
     function checkForUpdates() {
