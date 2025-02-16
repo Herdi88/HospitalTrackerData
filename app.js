@@ -14,69 +14,39 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("total_surgeries").textContent = data.total_todays_surgeries;
             document.getElementById("last_updated").textContent = `🗓 ${data.last_updated}`;
 
-            // Populate Today's Surgeries
-            const surgeryList = document.getElementById("surgery_list");
-            surgeryList.innerHTML = "";
-            data.todays_surgeries.forEach(surgery => {
-                const li = document.createElement("li");
-                li.textContent = `${surgery.name}: ${surgery.doctor}`;
-                surgeryList.appendChild(li);
-            });
-
-            // Populate Top Doctors by Appointments Weekly
-            const topDoctorsList = document.getElementById("top_doctors_list");
-            topDoctorsList.innerHTML = "";
-            data.top_doctors_weekly.forEach(doctor => {
-                const li = document.createElement("li");
-                li.textContent = `${doctor.name}: ${doctor.count} مواعيد`;
-                topDoctorsList.appendChild(li);
-            });
-
-            // Populate Top Surgeons by Surgeries Weekly
-            const topSurgeonsList = document.getElementById("top_surgeons_list");
-            topSurgeonsList.innerHTML = "";
-            data.top_surgeons_weekly.forEach(surgeon => {
-                const li = document.createElement("li");
-                li.textContent = `${surgeon.name}: ${surgeon.count} عمليات`;
-                topSurgeonsList.appendChild(li);
-            });
-
+            populateList("surgery_list", data.todays_surgeries, item => `${item.name}: ${item.doctor}`);
+            populateList("top_doctors_list", data.top_doctors_weekly, item => `${item.name}: ${item.count} مواعيد`);
+            populateList("top_surgeons_list", data.top_surgeons_weekly, item => `${item.name}: ${item.count} عمليات`);
         } catch (error) {
             console.error("Error fetching data:", error);
             document.getElementById("last_updated").textContent = "❌ خطأ في تحميل البيانات";
         }
     }
 
-    // Button to Refresh Data
-    document.getElementById("refresh_data").addEventListener("click", fetchData);
-
-    // Toggle Surgery List Visibility
-    document.getElementById("toggleSurgeryList").addEventListener("click", function () {
-        toggleList("surgery_list", this, "🔼 إخفاء قائمة العمليات الجراحية", "🔽 عرض قائمة العمليات الجراحية");
-    });
-
-    // Toggle Top Doctors List Visibility
-    document.getElementById("toggleTopDoctorsList").addEventListener("click", function () {
-        toggleList("top_doctors_list", this, "🔼 إخفاء قائمة أفضل الأطباء حسب المواعید اسبوعیا", "🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا");
-    });
-
-    // Toggle Top Surgeons List Visibility
-    document.getElementById("toggleTopSurgeonsList").addEventListener("click", function () {
-        toggleList("top_surgeons_list", this, "🔼 إخفاء قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا", "🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا");
-    });
-
-    // Helper function to toggle visibility with button text change
-    function toggleList(listId, button, hideText, showText) {
-        const list = document.getElementById(listId);
-        if (list.classList.contains("hidden")) {
-            list.classList.remove("hidden");
-            button.textContent = hideText;
-        } else {
-            list.classList.add("hidden");
-            button.textContent = showText;
-        }
+    function populateList(elementId, dataArray, formatFunc) {
+        const list = document.getElementById(elementId);
+        list.innerHTML = "";
+        dataArray.forEach(item => {
+            const li = document.createElement("li");
+            li.textContent = formatFunc(item);
+            list.appendChild(li);
+        });
     }
 
-    // Initial Data Fetch on Load
+    // Toggle Visibility Functions
+    document.getElementById("toggleSurgeryList").addEventListener("click", () => toggleList("surgery_list", "toggleSurgeryList", "🔼 إخفاء قائمة العمليات الجراحية", "🔽 عرض قائمة العمليات الجراحية"));
+    document.getElementById("toggleTopDoctorsList").addEventListener("click", () => toggleList("top_doctors_list", "toggleTopDoctorsList", "🔼 إخفاء قائمة أفضل الأطباء", "🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا"));
+    document.getElementById("toggleTopSurgeonsList").addEventListener("click", () => toggleList("top_surgeons_list", "toggleTopSurgeonsList", "🔼 إخفاء قائمة أفضل الجراحين", "🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا"));
+
+    function toggleList(listId, buttonId, hideText, showText) {
+        const list = document.getElementById(listId);
+        const button = document.getElementById(buttonId);
+        list.classList.toggle("hidden");
+        button.textContent = list.classList.contains("hidden") ? showText : hideText;
+    }
+
+    document.getElementById("refresh_data").addEventListener("click", fetchData);
+
     fetchData();
 });
+
