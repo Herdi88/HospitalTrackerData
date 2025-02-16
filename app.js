@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dataUrl = "https://raw.githubusercontent.com/Herdi88/HospitalTrackerData/main/hospital_data.json";
-    let lastUpdatedTime = "";
 
     async function fetchData() {
         try {
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("total_surgeries").textContent = data.total_todays_surgeries;
             document.getElementById("last_updated").textContent = `🗓 ${data.last_updated}`;
 
-            // Populate Surgery List
+            // Populate Today's Surgeries
             const surgeryList = document.getElementById("surgery_list");
             surgeryList.innerHTML = "";
             data.todays_surgeries.forEach(surgery => {
@@ -23,16 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 li.textContent = `${surgery.name}: ${surgery.doctor}`;
                 surgeryList.appendChild(li);
             });
-// Populate Top Surgeons by Surgeries Weekly
-const topSurgeonsList = document.getElementById('top_surgeons_list');
-topSurgeonsList.innerHTML = "";
-data.top_surgeons_weekly.forEach(surgeon => {
-  const li = document.createElement('li');
-  li.textContent = `${surgeon.name}: ${surgeon.count} عمليات`;
-  topSurgeonsList.appendChild(li);
-});
 
-            // Populate Top Doctors by Appointments
+            // Populate Top Doctors by Appointments Weekly
             const topDoctorsList = document.getElementById("top_doctors_list");
             topDoctorsList.innerHTML = "";
             data.top_doctors_weekly.forEach(doctor => {
@@ -41,7 +32,7 @@ data.top_surgeons_weekly.forEach(surgeon => {
                 topDoctorsList.appendChild(li);
             });
 
-            // Populate Top Surgeons by Surgeries
+            // Populate Top Surgeons by Surgeries Weekly
             const topSurgeonsList = document.getElementById("top_surgeons_list");
             topSurgeonsList.innerHTML = "";
             data.top_surgeons_weekly.forEach(surgeon => {
@@ -50,7 +41,6 @@ data.top_surgeons_weekly.forEach(surgeon => {
                 topSurgeonsList.appendChild(li);
             });
 
-            lastUpdatedTime = data.last_updated;
         } catch (error) {
             console.error("Error fetching data:", error);
             document.getElementById("last_updated").textContent = "❌ خطأ في تحميل البيانات";
@@ -67,15 +57,15 @@ data.top_surgeons_weekly.forEach(surgeon => {
 
     // Toggle Top Doctors List Visibility
     document.getElementById("toggleTopDoctorsList").addEventListener("click", function () {
-        toggleList("top_doctors_list", this, "🔼 إخفاء قائمة أفضل الأطباء", "🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا");
+        toggleList("top_doctors_list", this, "🔼 إخفاء قائمة أفضل الأطباء حسب المواعید اسبوعیا", "🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا");
     });
 
     // Toggle Top Surgeons List Visibility
     document.getElementById("toggleTopSurgeonsList").addEventListener("click", function () {
-        toggleList("top_surgeons_list", this, "🔼 إخفاء قائمة أفضل الجراحين", "🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا");
+        toggleList("top_surgeons_list", this, "🔼 إخفاء قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا", "🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا");
     });
 
-    // Helper function to toggle visibility
+    // Helper function to toggle visibility with button text change
     function toggleList(listId, button, hideText, showText) {
         const list = document.getElementById(listId);
         if (list.classList.contains("hidden")) {
@@ -86,14 +76,6 @@ data.top_surgeons_weekly.forEach(surgeon => {
             button.textContent = showText;
         }
     }
-function toggleSection(sectionId) {
-  const section = document.getElementById(sectionId);
-  if (section.style.display === "none") {
-    section.style.display = "block";
-  } else {
-    section.style.display = "none";
-  }
-}
 
     // Initial Data Fetch on Load
     fetchData();
