@@ -8,18 +8,6 @@
   "total_todays_surgeries": 15,
   "todays_surgeries": [
     {
-      "name": "عملية زراعة الكلى",
-      "doctor": "د. سعيد حسن"
-    },
-    {
-      "name": "عدد المواعيد",
-      "doctor": "اسم الطبيب"
-    },
-    {
-      "name": "25",
-      "doctor": "د. أحمد قاسم"
-    },
-    {
       "name": "20",
       "doctor": "د. يوسف كريم"
     },
@@ -34,22 +22,25 @@
     {
       "name": "8",
       "doctor": "د. حسين القادري"
+    },
+    {
+      "name": "اسم العملية",
+      "doctor": "اسم الجراح"
+    },
+    {
+      "name": "عملية الطب المفتوح",
+      "doctor": "د. أحمد علي"
+    },
+    {
+      "name": "عملية زراعة الكلى",
+      "doctor": "د. سعيد حسن"
     }
   ],
   "top_doctors_weekly": [
     {
-      "name": "25",
-      "count": "د. أحمد قاسم"
-    },
-    {
-      "name": "20",
-      "count": "د. يوسف كريم"
-    }
-  ],
-  "top_surgeons_weekly": [
-    {
       "name": "8",
       "count": "د. حسين القادري"
     }
-  ]
+  ],
+  "top_surgeons_weekly": []
 }
