@@ -23,6 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 li.textContent = `${surgery.name}: ${surgery.doctor}`;
                 surgeryList.appendChild(li);
             });
+// Populate Top Surgeons by Surgeries Weekly
+const topSurgeonsList = document.getElementById('top_surgeons_list');
+topSurgeonsList.innerHTML = "";
+data.top_surgeons_weekly.forEach(surgeon => {
+  const li = document.createElement('li');
+  li.textContent = `${surgeon.name}: ${surgeon.count} عمليات`;
+  topSurgeonsList.appendChild(li);
+});
 
             // Populate Top Doctors by Appointments
             const topDoctorsList = document.getElementById("top_doctors_list");
