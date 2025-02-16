@@ -86,6 +86,14 @@ data.top_surgeons_weekly.forEach(surgeon => {
             button.textContent = showText;
         }
     }
+function toggleSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section.style.display === "none") {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+  }
+}
 
     // Initial Data Fetch on Load
     fetchData();
