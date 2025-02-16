@@ -12,22 +12,27 @@
       "doctor": "د. سعيد حسن"
     }
   ],
-{
- "top_doctors_weekly": [
+  "top_doctors_weekly": [
     {
-      "name": "د. يوسف كريم",
-      "count": "20"
-    }
-  ],
-  "top_surgeons_weekly": [
-    {
-      "name": "د. محمد مسعود",
-      "count": "10"
+      "name": "20",
+      "count": "د. يوسف كريم"
     },
     {
-      "name": "د. حسين القفوري",
-      "count": "8"
+      "name": "(Top Surgeons by Surgeries Weekly)",
+      "count": ""
+    },
+    {
+      "name": "عدد العمليات",
+      "count": "اسم الجراح"
+    },
+    {
+      "name": "10",
+      "count": "د. محمد سعيد"
+    },
+    {
+      "name": "8",
+      "count": "د. حسين القادري"
     }
-  ]
+  ],
+  "top_surgeons_weekly": []
 }
-  
