@@ -8,14 +8,14 @@
   "total_todays_surgeries": 15,
   "todays_surgeries": [
     {
-      "name": "????? ????? ?????",
-      "doctor": "?. ???? ???"
+      "name": "عملية زراعة الكلى",
+      "doctor": "د. سعيد حسن"
     }
   ],
   "top_doctors_weekly": [
     {
       "name": "20",
-      "count": "?. ???? ????"
+      "count": "د. يوسف كريم"
     }
   ],
   "top_surgeons_weekly": []
