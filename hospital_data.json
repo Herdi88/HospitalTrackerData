@@ -1,38 +1,35 @@
 {
-  "last_updated": 50,
-  "today_appointments": 80,
-  "tomorrow_appointments": 400,
-  "handled_calls": 14,
-  "emergency_patients": 15,
+  "last_updated": "2025.02.15 14:03",
+  "today_appointments": 50,
+  "tomorrow_appointments": 80,
+  "handled_calls": 400,
+  "emergency_patients": 14,
   "admitted_patients": 15,
+  "total_todays_surgeries": 15,
   "todays_surgeries": [
     {
-      "doctor": "",
-      "name": ""
-    },
-    {
-      "doctor": "",
-      "name": ""
+      "name": "د. سعيد حسن",
+      "doctor": "د. أحمد علي"
     }
   ],
   "top_doctors_weekly": [
     {
-      "name": "د. أحمد قاسم",
-      "count": "د. يوسف كريم"
+      "name": "اسم الطبيب",
+      "count": "د. أحمد قاسم"
     },
     {
-      "name": "",
-      "count": "اسم الجراح"
+      "name": "د. يوسف كريم",
+      "count": ""
     }
   ],
   "top_surgeons_weekly": [
     {
-      "name": "د. حسين القادري",
-      "count": ""
+      "name": "د. محمد سعيد",
+      "count": "د. حسين القادري"
     },
     {
-      "name": "اسم الجراح",
-      "count": "د. أحمد علي"
+      "name": "",
+      "count": "اسم الجراح"
     }
   ]
 }
