@@ -6,41 +6,17 @@
   "emergency_patients": 14,
   "admitted_patients": 15,
   "total_todays_surgeries": 15,
-  "todays_surgeries": [
-    {
-      "name": "20",
-      "doctor": "د. يوسف كريم"
-    },
-    {
-      "name": "عدد العمليات",
-      "doctor": "اسم الجراح"
-    },
-    {
-      "name": "10",
-      "doctor": "د. محمد سعيد"
-    },
-    {
-      "name": "8",
-      "doctor": "د. حسين القادري"
-    },
-    {
-      "name": "اسم العملية",
-      "doctor": "اسم الجراح"
-    },
-    {
-      "name": "عملية الطب المفتوح",
-      "doctor": "د. أحمد علي"
-    },
-    {
-      "name": "عملية زراعة الكلى",
-      "doctor": "د. سعيد حسن"
-    }
-  ],
+  "todays_surgeries": [],
   "top_doctors_weekly": [
     {
-      "name": "8",
-      "count": "د. حسين القادري"
+      "name": "20",
+      "count": "د. يوسف كريم"
     }
   ],
-  "top_surgeons_weekly": []
+  "top_surgeons_weekly": [
+    {
+      "name": "اسم العملية",
+      "count": "اسم الجراح"
+    }
+  ]
 }
