@@ -6,24 +6,20 @@
   "emergency_patients": 14,
   "admitted_patients": 15,
   "total_todays_surgeries": 15,
-  "todays_surgeries": [
+  "todays_surgeries": [],
+  "top_doctors_weekly": [
     {
-      "name": "(Today's Surgeries)",
-      "doctor": "غير معروف"
+      "name": "عدد المواعيد",
+      "count": null
     },
     {
-      "name": "اسم العملية",
-      "doctor": "اسم الجراح"
+      "name": "25",
+      "count": null
     },
     {
-      "name": "عملية الطب المفتوح",
-      "doctor": "د. أحمد علي"
-    },
-    {
-      "name": "عملية زراعة الكلى",
-      "doctor": "د. سعيد حسن"
+      "name": "20",
+      "count": null
     }
   ],
-  "top_doctors_weekly": [],
   "top_surgeons_weekly": []
 }
