@@ -5,7 +5,6 @@
   "handled_calls": 14,
   "emergency_patients": 15,
   "admitted_patients": 15,
-  "total_todays_surgeries": "",
   "todays_surgeries": [
     {
       "doctor": "",
