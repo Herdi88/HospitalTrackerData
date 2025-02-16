@@ -8,10 +8,15 @@
   "total_todays_surgeries": 15,
   "todays_surgeries": [
     {
-      "name": "",
+      "name": "????? ????? ?????",
       "doctor": "?. ???? ???"
     }
   ],
-  "top_doctor_appointments": "",
-  "best_surgeon": ""
+  "top_doctors_weekly": [
+    {
+      "name": "20",
+      "count": "?. ???? ????"
+    }
+  ],
+  "top_surgeons_weekly": []
 }
