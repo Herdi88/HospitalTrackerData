@@ -1,25 +1,63 @@
 {
-  "last_updated": "2025.02.15 14:03",
-  "today_appointments": 100,
-  "tomorrow_appointments": 80,
-  "handled_calls": 400,
-  "emergency_patients": 14,
-  "admitted_patients": 15,
+  "last_updated": "B",
+  "today_appointments": "2025.02.15 14:03",
+  "tomorrow_appointments": 90,
+  "handled_calls": 80,
+  "emergency_patients": 400,
+  "admitted_patients": 14,
   "total_todays_surgeries": 15,
-  "todays_surgeries": [],
+  "todays_surgeries": [
+    {
+      "name": "عملية القلب المفتوح",
+      "doctor": "د. احمد علي"
+    },
+    {
+      "name": "عملية زراعة الكلى",
+      "doctor": "د. سعيد حسن"
+    }
+  ],
   "top_doctors_weekly": [
     {
-      "name": "عدد المواعيد",
+      "name": "د. احمد فاضل",
+      "count": 25
+    },
+    {
+      "name": "د. يوسف كريم",
+      "count": 20
+    },
+    {
+      "name": "د. محمد سعيد",
+      "count": 10
+    },
+    {
+      "name": "د. علي الطفيلي",
+      "count": 8
+    },
+    {
+      "name": "عملية القلب المفتوح",
       "count": null
     },
     {
-      "name": "25",
-      "count": null
-    },
-    {
-      "name": "20",
+      "name": "عملية زراعة الكلى",
       "count": null
     }
   ],
-  "top_surgeons_weekly": []
+  "top_surgeons_weekly": [
+    {
+      "name": "د. محمد سعيد",
+      "count": 10
+    },
+    {
+      "name": "د. علي الطفيلي",
+      "count": 8
+    },
+    {
+      "name": "عملية القلب المفتوح",
+      "count": null
+    },
+    {
+      "name": "عملية زراعة الكلى",
+      "count": null
+    }
+  ]
 }
