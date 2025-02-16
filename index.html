@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="manifest" href="manifest.json">
     <script defer src="app.js"></script>
 </head>
+
 <body>
     <div class="container">
         <h1>🏥 لوحة إدارة المستشفى</h1>
@@ -19,19 +21,26 @@
         <p>🛏️ المرضى الراقدين: <span id="admitted_patients">-</span></p>
 
         <h2>🔬 العمليات الجراحية اليوم: <span id="total_surgeries">-</span></h2>
-        <button id="toggleSurgeryList" class="toggle-button">🔽 عرض قائمة العمليات الجراحية</button>
-        <ul id="surgery_list" class="hidden"></ul>
+        <div>
+            <button id="toggleSurgeryList" class="toggle-button">🔽 عرض قائمة العمليات الجراحية</button>
+            <ul id="surgery_list" class="hidden"></ul>
+        </div>
 
         <!-- Top Doctors by Appointments -->
-        <button id="toggleTopDoctorsList" class="toggle-button">🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا</button>
-        <ul id="top_doctors_list" class="hidden"></ul>
+        <div>
+            <button id="toggleTopDoctorsList" class="toggle-button">🔽 عرض قائمة أفضل الأطباء حسب المواعید اسبوعیا</button>
+            <ul id="top_doctors_list" class="hidden"></ul>
+        </div>
 
         <!-- Top Surgeons by Surgeries -->
-        <button id="toggleTopSurgeonsList" class="toggle-button">🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا</button>
-        <ul id="top_surgeons_list" class="hidden"></ul>
+        <div>
+            <button id="toggleTopSurgeonsList" class="toggle-button">🔽 عرض قائمة أفضل الجراحين حسب عدد عملیات اسبوعیا</button>
+            <ul id="top_surgeons_list" class="hidden"></ul>
+        </div>
 
         <p>📅 آخر تحديث: <span id="last_updated">-</span></p>
         <button id="refresh_data">🔄 تحديث البيانات</button>
     </div>
 </body>
+
 </html>
